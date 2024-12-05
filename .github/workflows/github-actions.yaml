@@ -3,8 +3,8 @@ name: Update Index.html from README
 on:
   push:
     branches:
-      - main  # Trigger auf Änderungen im `main`-Branch
-  workflow_dispatch: # Manuelles Triggern des Workflows
+      - main 
+  workflow_dispatch:
 
 jobs:
   build:
@@ -19,16 +19,17 @@ jobs:
       with:
         source: README.md
         output: index.html
-        title: "My Project" # Ersetze durch deinen gewünschten Titel
+        title: "My Project"
         description: "Generated from README.md"
-        github-corners: https://github.com/sohneg/sohneg.github.io # Passe an dein Repository an
+        github-corners: https://github.com/sohneg/sohneg.github.io
         favicon: |
           data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>
 
     - name: Commit and Push Changes
       run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git config user.name "Simon Sohneg"
+        git config user.email "sohneg92@gmail.com"
+        git pull --rebase origin main  # Holt Änderungen vom Remote-Branch
         git add index.html
-        git commit -m "Update index.html from README.md"
-        git push
+        git commit -m "Update index.html from README.md" || echo "No changes to commit"
+        git push origin HEAD:main
