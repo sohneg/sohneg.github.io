@@ -27,7 +27,7 @@ jobs:
 
     - name: Commit and Push Changes
       run: |
-        git config user.name "sohneg"
+        git config user.name "Simon Sohneg"
         git config user.email "sohneg92@gmail.com"
         git add index.html
         git commit -m "Update index.html from README.md"
