@@ -29,7 +29,6 @@ jobs:
       run: |
         git config user.name "Simon Sohneg"
         git config user.email "sohneg92@gmail.com"
-        git pull --rebase origin main  # Holt Änderungen vom Remote-Branch
         git add index.html
-        git commit -m "Update index.html from README.md" || echo "No changes to commit"
-        git push origin HEAD:main
+        git commit -m "Update index.html from README.md"
+        git push
